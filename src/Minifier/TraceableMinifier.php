@@ -27,7 +27,7 @@ final class TraceableMinifier implements MinifierInterface
     ) {
     }
 
-    public function minify(string $input, string $type): string
+    public function minify(string $input, string $type/* , ?\Sensiolabs\MinifyBundle\Minifier\Options\OptionsInterface $options = null */): string
     {
         $inputSize = strlen($input);
         $this->logger->debug('Minify command input: {inputSize} kB', [
@@ -36,7 +36,7 @@ final class TraceableMinifier implements MinifierInterface
         ]);
 
         $timeStart = microtime(true);
-        $output = $this->minifier->minify($input, $type);
+        $output = $this->minifier->minify(...\func_get_args());
         $timeEnd = microtime(true);
 
         $outputSize = strlen($output);
