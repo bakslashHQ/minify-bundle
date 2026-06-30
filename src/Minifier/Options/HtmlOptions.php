@@ -15,6 +15,9 @@ namespace Sensiolabs\MinifyBundle\Minifier\Options;
 
 use Sensiolabs\MinifyBundle\Minifier\MinifierInterface;
 
+/**
+ * @author Hugo Alliaume <hugo@alliau.me>
+ */
 final class HtmlOptions implements OptionsInterface
 {
     /**

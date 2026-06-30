@@ -31,15 +31,15 @@ final class Minify implements MinifierInterface
     public function minify(string $input, string $type/* , ?OptionsInterface $options = null */): string
     {
         $options = \func_num_args() > 2 ? \func_get_arg(2) : null;
-        if ($options !== null && !$options instanceof OptionsInterface) {
+        if (null !== $options && !$options instanceof OptionsInterface) {
             throw new RuntimeException(sprintf('Expected $options to be an instance of "%s", got "%s".', OptionsInterface::class, get_debug_type($options)));
         }
-        if ($options !== null && $options->getType() !== $type) {
+        if (null !== $options && $options->getType() !== $type) {
             throw new RuntimeException(sprintf('Options type "%s" does not match minify type "%s".', $options->getType(), $type));
         }
 
         $args = [$this->binaryPath, '--type', $type];
-        if ($options !== null) {
+        if (null !== $options) {
             $args = [...$args, ...$options->toCliArgs()];
         }
 

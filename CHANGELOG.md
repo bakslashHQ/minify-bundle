@@ -3,7 +3,7 @@
 ## 1.3.0
 
 - Add HTML support (`MinifierInterface::TYPE_HTML`)
-- Add options support to `MinifierInterface::minify()` via the `OptionsInterface` DTO (BC-compatible, third argument)
+- Add options support to `MinifierInterface::minify()` via a third, optional `OptionsInterface` argument. This argument will become part of the signature in 2.0.
 
 ## 1.2.0
 

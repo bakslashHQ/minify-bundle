@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sensiolabs\MinifyBundle\Minifier;
 
+use Sensiolabs\MinifyBundle\Minifier\Options\OptionsInterface;
+
 /**
  * @author Simon André <smn.andre@gmail.com>
  */
@@ -24,6 +26,7 @@ interface MinifierInterface
 
     /**
      * @param self::TYPE_CSS|self::TYPE_JS|self::TYPE_HTML $type
+     * @param OptionsInterface|null                        $options
      */
-    public function minify(string $input, string $type/* , ?\Sensiolabs\MinifyBundle\Minifier\Options\OptionsInterface $options = null */): string;
+    public function minify(string $input, string $type/* , ?OptionsInterface $options = null */): string;
 }
