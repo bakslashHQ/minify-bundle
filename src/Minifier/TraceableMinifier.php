@@ -38,7 +38,9 @@ final class TraceableMinifier implements MinifierInterface
         ]);
 
         $timeStart = microtime(true);
-        $output = $this->minifier->minify($input, $type, $options);
+$output = null === $options
+            ? $this->minifier->minify($input, $type)
+            : $this->minifier->minify($input, $type, $options);
         $timeEnd = microtime(true);
 
         $outputSize = strlen($output);
